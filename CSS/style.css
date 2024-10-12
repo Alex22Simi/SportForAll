@@ -39,11 +39,66 @@ body{
 .bg-white{
     background-color: white;
 }
+.nav-links {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 15px;
+}
+
 .nav-links a {
     background-color: var(--dark-color);
     color: white;
-    text-decoration: none;
-    font-size: 20px;
+    padding: 10px 15px;
     border-radius: 5px;
-    padding: 5px 10px;
+    transition: background-color 0.3s ease;
+}
+.nav-links a:hover {
+    background-color: #333;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: var(--primary-color);
+}
+header img {
+    max-height: 50px;
+}
+.card {
+    background-color: white;
+    height: auto;
+    width: 250px;
+    border: 1px solid lightgray;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+.card img {
+    width: 150px;
+    height: auto;
+    margin-bottom: 10px;
+}
+.card h2, .card p {
+    margin: 10px 0;
+}
+
+.card button {
+    width: 100%;
+    color: white;
+    background-color: black;
+    padding: 10px;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
 }
