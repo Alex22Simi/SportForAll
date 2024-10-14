@@ -53,7 +53,7 @@ header img {
 .card {
     background-color: white;
     height: auto;
-    width: 150px;
+    width: auto;
     border: 1px solid lightgray;
     padding: 20px;
     display: flex;
@@ -71,7 +71,7 @@ header img {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 .card img {
-    width: 150px;
+    width: auto;
     height: auto;
     margin-bottom: 10px;
 }
@@ -95,3 +95,4 @@ header img {
     grid-template-columns: repeat(auto-fit,minmax(150px,200px));
     justify-content: space-evenly;
 }
+
