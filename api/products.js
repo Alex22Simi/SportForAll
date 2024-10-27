@@ -6,10 +6,10 @@ export async function getAllProducts()
 {
     const response = await fetch(URL);
     const products = await response.json();
-
+    console.log(products);
     return products;
 }
-export async function getElementById(id)
+export async function getProductById(id)
 {
     const response = await fetch(`${URL}/${id}`);
     const product = await response.json();

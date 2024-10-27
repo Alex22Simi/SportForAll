@@ -1,6 +1,5 @@
-import { getAllProducts,getProductById, deleteProduct, updateProduct, addNewProduct} from "../api/products";
-import { mapProductToAdminTableRow } from "../utils/layout";
-
+import { getAllProducts, getProductById, deleteProduct, updateProduct, addNewProduct } from "../api/products.js";
+import { mapProductToAdminTableRow } from "../utils/layout.js";
 const productsTableBody = document.getElementById("products-table").querySelector("tbody");
 
 document.addEventListener("DOMContentLoaded", displayProducts);
@@ -8,6 +7,7 @@ document.addEventListener("DOMContentLoaded", displayProducts);
 
 async function displayProducts() {
    const products = await getAllProducts();
+   console.log(products);
    productsTableBody.innerHTML = products.map(mapProductToAdminTableRow).join("");
         }
        
