@@ -1,30 +1,16 @@
+import { getAllProducts,getProductById, deleteProduct, updateProduct, addNewProduct} from "../api/products";
+import { mapProductToAdminTableRow } from "../utils/layout";
+
 const productsTableBody = document.getElementById("products-table").querySelector("tbody");
 
 document.addEventListener("DOMContentLoaded", displayProducts);
-const URL = "https://670fe590a85f4164ef2c6146.mockapi.io/products";
 
-function displayProducts() {
-    fetch(URL)
-        .then(response => response.json())
-        .then(products => {
-            productsTableBody.innerHTML = products.map(product => `
-                <tr>
-                    <td>${product.name}</td>
-                    <td>${product.price} lei</td>
-                    <td><img src="${product.imageURL}" alt="${product.name}" width="50"></td>
-                    <td>${product.details}</td>
-                    <td>
-                    <button class= "edit-btn" data-productId=${product.id}>Edit</button>
-                    </td>
 
-                    <td>
-                    <button class = "delete-btn" data-productId=${product.id}>Delete</button>
-                    </td>
-                </tr>
-            `).join("");
-        })
-        .catch(error => console.error('Eroare la încărcarea produselor:', error));
-}
+async function displayProducts() {
+   const products = await getAllProducts();
+   productsTableBody.innerHTML = products.map(mapProductToAdminTableRow).join("");
+        }
+       
 
 //save new product
 const form = document.getElementById("product-form");
@@ -38,7 +24,7 @@ let editMode = false;
 
 
 saveProductBtn.addEventListener("click",saveProduct);
-function saveProduct(event)
+async function saveProduct(event)
 {
     event.preventDefault();
     const product = {
@@ -48,55 +34,48 @@ function saveProduct(event)
         details:detailsInput.value,
 
     };
-    if(editMode)
+     if(editMode){
+        const editedProduct = await updateProduct(product, currentEditableProductId);
+    if(editedProduct !== null )
     {
-fetch(`${URL}/${currentEditableProductId}`,{
-    method: "PUT",
-    headers: {
-        "Content-Type": "application/json",
+        form.reset();
+       await displayProducts();
+        editMode = false;
+    }
 
-    },
-    body:JSON.stringify(product),
-}).then(()=>{
+    }
+    else{
+   const newProduct = await addNewProduct(product);
+if(newProduct !== null){
     form.reset();
-    displayProducts();
-    editMode = false;
-})
-    }else{
-    fetch(URL, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(product),
+   await  displayProducts();
+}
 
-    }).then(()=> displayProducts());
+    }
 }
-}
+
 
 productsTableBody.addEventListener("click", handleActions);
 
-function handleActions(event)
+async function handleActions(event)
 {
     if(event.target.classList.contains("edit-btn"))
     {
         currentEditableProductId = event.target.getAttribute("data-productId");
-        fetch(`${URL}/${currentEditableProductId}`).then(response=>response.json()).then((product) => {
-            nameInput.value = product.name;
-            priceInput.value = product.price;
-            imageUrlInput.value = product.imageURL;
-            detailsInput.value = product.details;
+        const curentProduct = await getProductById(currentEditableProductId);
 
-    });
+
+        
+            nameInput.value = curentProduct.name;
+            priceInput.value = curentProduct.price;
+            imageUrlInput.value = curentProduct.imageURL;
+            detailsInput.value = curentProduct.details;
     editMode = true;
     }else if(event.target.classList.contains("delete-btn"))
     {
         const id = event.target.getAttribute("data-productId");
-        fetch(`${URL}/${id}`,
-            {
-                method: "DELETE",
-            }
-        ).then(() => displayProducts());
+        await deleteProduct(id);
+        await displayProducts();
     }
     
 }
