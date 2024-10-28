@@ -96,3 +96,14 @@ header img {
     justify-content: space-evenly;
 }
 
+.border-bottom{
+    border-bottom: 1px solid gray;
+}
+
+.w-300{
+    width: 300px;
+}
+.w-200{
+
+    width:200px;
+}
