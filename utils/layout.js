@@ -4,6 +4,7 @@ export function mapProductToCard(product)
     <div class="card">
 <div class="info">
    <div class="img">
+   <a href="../pages/details.html?id=${product.id}" />
        <img src="${product.imageURL}" alt="">
    </div>
    <div class="name">
