@@ -16,7 +16,8 @@ async function displayProducts(){
        const addToCartButtons = document.querySelectorAll(".add-to-cart");
        console.log(addToCartButtons);
        addToCartButtons.forEach((button)=>{
-         button.addEventListener("click",() => {
+         button.addEventListener("click",(e) => {
+          e.defaultPrevented();
             
           const productId = button.getAttribute("data-productId");
           const name = button.getAttribute("data-name");
@@ -26,16 +27,16 @@ async function displayProducts(){
 
           let cart = JSON.parse(localStorage.getItem("cart")) || {};
 
-          if(cart[productId])
-          {
+          if (cart[productId]) {
             cart[productId].quantity++;
-          }else{
-            cart[productId] = {quantity: 1,
-               price: Number(price),
-               image: imageURL,
-               name: name,
+        } else {
+            cart[productId] = {
+                quantity: 1,
+                price: Number(price),
+                image: imageURL,
+                name: name,
             };
-          }
+        }
 
           localStorage.setItem("cart",JSON.stringify(cart));
 
