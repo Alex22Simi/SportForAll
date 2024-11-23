@@ -1,102 +1,182 @@
+/* Stilul general al paginii */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #e6f7ff; /* Fundal albastru deschis */
+}
+
+/* Container pentru toată pagina */
 .container {
+    width: 90%;
     max-width: 1200px;
-    margin: auto;
+    margin: 0 auto;
     padding: 20px;
-    background-color: #f0f4f8;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-#product-form {
+/* Navbar */
+.navbar {
     display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    justify-content: center; /* Centrează inputurile și butonul */
-    margin-bottom: 20px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #fff;
+    border-bottom: 2px solid #ddd;
 }
 
-#product-form input {
-    flex: 1;
-    padding: 10px;
+.navbar .logo img {
+    max-width: 100px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #fff;
+    background-color: #007bff;
+    padding: 8px 15px;
+    border-radius: 5px;
+    margin-left: 10px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.nav-links a:hover {
+    background-color: #0056b3;
+}
+
+/* Formatarea formularului */
+#product-form {
+    margin: 20px 0;
+}
+
+/* Alinierea câmpurilor pe un rând */
+.form-row {
+    display: flex;
+    justify-content: space-between; /* Spațiere între câmpuri */
+    align-items: center;
+    margin-bottom: 10px; /* Spațiu între rânduri */
+}
+
+.form-group {
+    flex: 1; /* Fiecare câmp ocupă dimensiuni egale */
+    margin: 0 10px; /* Spațiu lateral între câmpuri */
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px; /* Spațiu între etichetă și câmp */
+    font-weight: bold;
+}
+
+.form-group input {
+    width: 100%; /* Ocupă toată lățimea disponibilă în grup */
+    padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    font-size: 14px;
+}
+
+/* Centrarea butonului */
+.button-row {
+    display: flex;
+    justify-content: center; /* Centrare pe orizontală */
+    margin-top: 15px;
 }
 
 #save-btn {
-    padding: 10px 15px;
     background-color: #007bff;
     color: #fff;
+    padding: 10px 20px;
+    font-size: 16px;
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
     cursor: pointer;
-    font-size: 14px;
     font-weight: bold;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    align-self: center; /* Asigură alinierea verticală în flexbox */
 }
 
 #save-btn:hover {
     background-color: #0056b3;
-    transform: scale(1.05);
 }
 
-table {
+/* Tabelul */
+#products-table {
     width: 100%;
     border-collapse: collapse;
-    background-color: #ffffff;
-    border-radius: 5px;
-    overflow: hidden;
+    margin-top: 20px;
 }
 
-th, td {
-    padding: 12px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
+#products-table th,
+#products-table td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
 }
 
-th {
+#products-table th {
     background-color: #007bff;
-    color: #fff;
+    color: white;
     text-transform: uppercase;
 }
 
-tr:nth-child(even) {
+#products-table tr:nth-child(even) {
     background-color: #f9f9f9;
 }
 
-tr:hover {
-    background-color: #e9ecef;
+#products-table tr:nth-child(odd) {
+    background-color: #f0f0f0;
 }
 
-td {
-    vertical-align: middle;
-}
-
-.edit-btn, .delete-btn {
-    padding: 8px 12px;
-    color: #fff;
+/* Stiluri pentru butoanele din tabel */
+button {
     border: none;
-    border-radius: 4px;
+    padding: 8px 12px;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
     cursor: pointer;
-    font-size: 14px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.edit-btn {
-    background-color: #28a745;
+button.edit {
+    background-color: #28a745 !important; /* Verde */
+    color: white !important;
+    font-weight: bold;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
-.edit-btn:hover {
-    background-color: #218838;
-    transform: scale(1.05);
+button.edit:hover {
+    background-color: #218838 !important; /* Verde mai închis */
+}
+button.delete {
+    background-color: #dc3545 !important; /* Roșu */
+    color: white !important;
+    font-weight: bold;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
-.delete-btn {
-    background-color: #dc3545;
+button.delete:hover {
+    background-color: #c82333 !important; /* Roșu mai închis */
 }
 
-.delete-btn:hover {
-    background-color: #c82333;
-    transform: scale(1.05);
+
+button.edit:disabled, button.delete:disabled {
+    background-color: #28a745 !important; /* Verde */
+    opacity: 1 !important;
+    cursor: not-allowed;
+}
+button.edit:disabled {
+    background-color: #28a745 !important; /* Verde */
+    color: white !important;
+    opacity: 1 !important; /* Elimină transparența */
+    cursor: not-allowed;
+}
+
+button.delete:disabled {
+    background-color: #dc3545 !important; /* Roșu */
+    color: white !important;
+    opacity: 1 !important; /* Elimină transparența */
+    cursor: not-allowed;
 }

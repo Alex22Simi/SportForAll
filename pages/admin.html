@@ -25,23 +25,27 @@
             </div>
         </div>
         <form id="product-form">
-            <div>
-                <label for="name">Product name</label>
-                <input type="text" id="name">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="name">Product name</label>
+                    <input type="text" id="name" placeholder="Enter product name">
+                </div>
+                <div class="form-group">
+                    <label for="price">Price</label>
+                    <input type="text" id="price" placeholder="Enter product price">
+                </div>
+                <div class="form-group">
+                    <label for="image-url">Image URL</label>
+                    <input type="text" id="image-url" placeholder="Enter image URL">
+                </div>
+                <div class="form-group">
+                    <label for="details">Details</label>
+                    <input type="text" id="details" placeholder="Enter product details">
+                </div>
             </div>
-            <div>
-                <label for="price">Price</label>
-                <input type="text" id="price">
+            <div class="button-row">
+                <button id="save-btn">Save products</button>
             </div>
-            <div>
-                <label for="image-url">Image URL</label>
-                <input type="text" id="image-url">
-            </div>
-            <div>
-                <label for="details">Details</label>
-                <input type="text" id="details">
-            </div>
-            <button id="save-btn">Save products</button>
         </form>
         <table id="products-table" border="1">
             <thead>
