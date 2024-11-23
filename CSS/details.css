@@ -1,0 +1,73 @@
+/* Centrare și stilizare container detalii */
+.content {
+    display: flex;
+    flex-direction: column; /* Pentru a organiza imaginea și textul pe verticală */
+    align-items: center; /* Centrează orizontal */
+    justify-content: center; /* Centrează vertical */
+    gap: 20px; /* Spațiere între elemente */
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px; /* Lățimea maximă a secțiunii */
+    margin: 50px auto; /* Centrează secțiunea pe pagină */
+    text-align: center; /* Text aliniat pe mijloc */
+}
+
+/* Imaginea produsului */
+.content img {
+    width: 300px; /* Dimensiune mai mare pentru imagine */
+    height: auto;
+    object-fit: contain;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+/* Titlul produsului */
+.details-text h2 {
+    font-size: 28px; /* Font mai mare pentru titlu */
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px; /* Spațiu sub titlu */
+}
+
+/* Detaliile produsului */
+.details-text p {
+    font-size: 18px; /* Font consistent pentru detalii */
+    color: #555;
+    margin: 5px 0; /* Spațiu uniform între paragrafe */
+}
+
+/* Prețul produsului */
+.details-text .price {
+    font-size: 22px; /* Dimensiune mai vizibilă pentru preț */
+    font-weight: bold;
+    color: #007bff;
+    margin-top: 15px;
+}
+
+/* Butonul "Cumpără acum" */
+.details-text .buy-now {
+    background-color: #007bff;
+    color: #fff;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+}
+
+.details-text .buy-now:hover {
+    background-color: #0056b3;
+}
+/* Centrare text pentru titlul "Details" */
+h1 {
+    text-align: center;
+    font-size: 32px; /* Poți ajusta dimensiunea după preferință */
+    font-weight: bold;
+    color: #333; /* O culoare neutră pentru contrast */
+    margin-top: 20px; /* Distanță față de partea de sus */
+    margin-bottom: 20px; /* Distanță față de secțiunea de detalii */
+}

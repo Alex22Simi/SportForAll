@@ -2,43 +2,51 @@
     max-width: 1200px;
     margin: auto;
     padding: 20px;
-    background-color: #f0f4f8 ;
+    background-color: #f0f4f8;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 #product-form {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 15px;
+    justify-content: center; /* Centrează inputurile și butonul */
     margin-bottom: 20px;
 }
 
 #product-form input {
-    padding: 5px;
+    flex: 1;
+    padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    
+    font-size: 14px;
 }
 
 #save-btn {
-    padding: 5px 10px;
+    padding: 10px 15px;
     background-color: #007bff;
     color: #fff;
     border: none;
     border-radius: 4px;
-    cursor:pointer;
-    transition: background-color 0.3s ease;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    align-self: center; /* Asigură alinierea verticală în flexbox */
 }
 
 #save-btn:hover {
     background-color: #0056b3;
+    transform: scale(1.05);
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
     background-color: #ffffff;
+    border-radius: 5px;
+    overflow: hidden;
 }
 
 th, td {
@@ -50,6 +58,15 @@ th, td {
 th {
     background-color: #007bff;
     color: #fff;
+    text-transform: uppercase;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #e9ecef;
 }
 
 td {
@@ -57,26 +74,29 @@ td {
 }
 
 .edit-btn, .delete-btn {
-    padding: 6px 10px;
+    padding: 8px 12px;
     color: #fff;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    font-size: 14px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .edit-btn {
-    background-color: #28a745 ;  
+    background-color: #28a745;
 }
+
 .edit-btn:hover {
     background-color: #218838;
+    transform: scale(1.05);
 }
+
 .delete-btn {
     background-color: #dc3545;
 }
 
 .delete-btn:hover {
     background-color: #c82333;
+    transform: scale(1.05);
 }
-
-

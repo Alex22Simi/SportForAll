@@ -1,109 +1,127 @@
-:root{
+:root {
     --primary-color: #DFF5FF;
-    --dark-color: #181C14;
+    --blue:  #007bff;
 }
 
-*{
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
-body{
-    font-family:Arial, Helvetica, sans-serif;
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
     background-color: var(--primary-color);
 }
 
+/* Navbar */
+.navbar {
+    max-width: 1200px;
+    width: 100%;
+    margin: 20px auto; /* Centrare pe pagină */
+    background-color: white;
+    display: flex;
+    justify-content: space-between; /* Spațiu între logo și linkuri */
+    align-items: center; /* Aliniază elementele pe verticală */
+    padding: 10px 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.logo img {
+    max-height: 120px; /* Ajustează dimensiunea înălțimii logo-ului */
+    object-fit: contain; /* Păstrează proporțiile imaginii */
+    margin-bottom: 10px; /* Adaugă puțin spațiu dedesubt, dacă este nevoie */
+}
 
 .nav-links {
-    position:absolute;
-    left:80vw;
     display: flex;
-    justify-content: flex-end;
+    gap: 15px; /* Spațiu între butoane */
     align-items: center;
-    gap: 15px;
-    top:30px;
 }
 
-.navbar
-{
-    height:100px;
-    width:100vw;
-    background-color: white;
-}
 .nav-links a {
-    background-color: var(--dark-color);
-    
+    background-color: var(--blue);
     color: white;
     padding: 10px 15px;
     border-radius: 5px;
-    transition: background-color 0.3s ease;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
+
 .nav-links a:hover {
-    background-color: #333;
+    background-color:  #0056b3;
+    transform: scale(1.05); /* Efect de hover */
 }
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 30px;
-    background-color: var(--primary-color);
+
+/* Secțiunea Produse */
+.products {
+    max-width: 1200px;
+    margin: 20px auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
 }
-header img {
-    max-height: 50px;
-}
+
 .card {
     background-color: white;
-    height: auto;
-    width: auto;
+    width: 200px;
     border: 1px solid lightgray;
     padding: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-   margin-top: 10px;
-   margin-bottom: 10px;
+    min-height: 350px;
 }
+
 .card:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
+
 .card img {
-    width: auto;
-    height: auto;
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
     margin-bottom: 10px;
 }
-.card h2, .card p {
+
+.card h2 {
+    font-size: 16px;
     margin: 10px 0;
+    text-align: center;
+}
+
+.card p {
+    font-size: 14px;
+    margin: 5px 0;
+    text-align: center;
 }
 
 .card button {
     width: 100%;
     color: white;
-    background-color: black;
+    background-color:var(--blue);
     padding: 10px;
     text-transform: uppercase;
     border: none;
     cursor: pointer;
-}
-.products
-{
-    width:100vw;
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(150px,200px));
-    justify-content: space-evenly;
+    margin-top: auto;
 }
 
-.border-bottom{
-    border-bottom: 1px solid gray;
+/* Efect de hover pe butoane */
+.card button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
 }
 
-.w-300{
-    width: 300px;
-}
-.w-200{
-
-    width:200px;
+/* Alte stiluri */
+.container {
+    padding: 20px;
 }
